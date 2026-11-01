@@ -2,6 +2,8 @@
 
 一个完整的端到端数据可视化作品集项目：从数据质量检查、清洗和验证，到探索性分析，再到基于 Plotly + Streamlit 的可交互 Dashboard。
 
+[项目报告（DOCX）](docs/superstore-project-report.docx) · [技术演示稿（PDF）](docs/superstore-portfolio-deck.pdf) · [完整演示视频](docs/superstore-demo.mp4)
+
 ![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)
 ![Pandas](https://img.shields.io/badge/Pandas-3.x-150458?logo=pandas&logoColor=white)
 ![Plotly](https://img.shields.io/badge/Plotly-7.x-3F4F75?logo=plotly&logoColor=white)
@@ -16,6 +18,12 @@
 > 销售规模的增长是否真正带来了利润增长？不同时间、地区、商品结构和折扣水平下的经营表现有何差异？
 
 项目没有只停留在画图层面，而是先统一交易明细、订单、客户和商品的统计口径，再通过数据验证保证 Dashboard 中的指标与原始数据一致。
+
+## 作品集材料
+
+- [项目报告（DOCX）](docs/superstore-project-report.docx)：完整的数据检查、预处理、分析、Dashboard 实现与总结。
+- [技术演示稿（PDF）](docs/superstore-portfolio-deck.pdf)：适合快速浏览的项目概览、核心发现和运行截图。
+- [完整演示视频](docs/superstore-demo.mp4)：展示项目背景和 Dashboard 操作流程。
 
 ## 项目亮点
 
@@ -83,6 +91,7 @@ Superstore_Visualization/
 ├── output/
 │   ├── figures/            # 分析图表与 Dashboard 截图
 │   └── tables/             # 质量检查、统计与分析结果
+├── docs/                   # 项目报告、技术演示稿和演示视频
 ├── report/                 # 完整项目报告
 ├── .streamlit/             # Streamlit 运行配置
 ├── run_dashboard.py        # Python 启动入口
