@@ -1,0 +1,16 @@
+﻿问题类型,涉及字段,发现数量,处理数量,处理方法,处理理由,处理后结果
+日期类型规范,"Order Date, Ship Date",19988,19988,使用 pd.to_datetime 转为日期类型,保证时间字段可排序和可计算,未产生无法解析日期或新缺失值
+数值类型规范,"Sales, Quantity, Discount, Profit",39976,39976,使用 pd.to_numeric 转为数值类型,保证销售、数量、折扣和利润可计算,未产生转换失败或新缺失值
+标识符类型规范,"Row ID, Order ID, Customer ID, Product ID",39976,39976,Row ID 保持整数；订单、客户和产品 ID 转为字符串,标识符不应作为连续数值变量,标识符完整，业务值未改变
+Postal Code 格式规范,Postal Code,9983,9983,非缺失值转为五位字符串并保留前导 0,邮编是地理标识符，不是连续数值,全部非缺失邮编为五位字符串；其中 438 条含前导 0
+Postal Code 缺失,Postal Code,11,0,保留缺失，不插补、不删除记录,邮编不是核心字段，State、City、Region 完整,仍有 11 条缺失，未产生新缺失
+完全重复记录,全部原始字段（包含 Row ID）,0,0,仅复核，不调用 drop_duplicates,没有证据支持删除,完全重复记录仍为 0 条
+疑似重复记录,除 Row ID 外的全部原始字段,2,0,保留 Row ID 3406、3407，并继续标记为疑似重复交易明细,其他业务字段一致不足以证明其中一条为错误记录,2 条全部保留，Orders 行数未减少
+IQR范围外Sales,Sales,1167,0,仅记录，不删除、不缩尾,统计异常不等于错误数据,1167 条全部保留
+IQR范围外Quantity,Quantity,170,0,仅记录，不删除、不缩尾,统计异常不等于错误数据,170 条全部保留
+IQR范围外Discount,Discount,856,0,仅记录，不删除、不缩尾,统计异常不等于错误数据,856 条全部保留
+IQR范围外Profit,Profit,1881,0,仅记录，不删除、不缩尾,统计异常不等于错误数据,1881 条全部保留
+负 Profit,Profit,1871,0,全部保留,亏损交易是后续经营分析的重要信息,1871 条负利润明细全部保留
+Returns 重复 Order ID,Returns.Order ID,710,504,构造唯一退货 Order ID 集合；不修改原始 Returns,避免与 Orders 直接连接造成一对多或多对多膨胀,由 800 行得到 296 个唯一退货订单
+退货状态字段构造,Returned,296,9994,使用 Orders['Order ID'].isin(唯一退货Order ID集合) 生成 Yes/No,在不连接、不增加行数的前提下提供退货分析字段,Yes 明细 800 条，No 明细 9194 条；总行数 9994
+时间分析字段构造,"Order Year, Order Quarter, Order Month, Order Year-Month",9994,9994,从 Order Date 构造年、季度、月和月份首日,提供可正确排序的基础时间维度,四个时间字段均无缺失，Order Year-Month 为真实日期

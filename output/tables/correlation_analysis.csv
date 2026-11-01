@@ -1,0 +1,17 @@
+﻿Relationship,Method,Scope,N,Coefficient,Note
+Sales vs Profit,Pearson,All transaction lines,9994,0.47906434973770606,观察性相关，不代表因果。
+Sales vs Profit,Spearman,All transaction lines,9994,0.5184042304452506,观察性相关，不代表因果。
+Sales vs Profit,Pearson,Middle 98% sensitivity subset,9666,0.566106533019324,仅用于检查极端记录影响，不替代完整数据统计。
+Sales vs Profit,Spearman,Middle 98% sensitivity subset,9666,0.5388722608558334,仅用于检查极端记录影响，不替代完整数据统计。
+Discount vs Profit,Pearson,All transaction lines,9994,-0.21948745637176836,观察性相关；商品结构可能同时影响折扣和利润。
+Discount vs Profit,Spearman,All transaction lines,9994,-0.5433516207211628,观察性相关；商品结构可能同时影响折扣和利润。
+Discount vs Sales,Pearson,All transaction lines,9994,-0.02819012415753557,观察性相关；不解释因果。
+Discount vs Sales,Spearman,All transaction lines,9994,-0.056955518486568275,观察性相关；不解释因果。
+Monthly Sales vs Monthly Profit,Pearson,48 monthly aggregates,48,0.7157901386722033,用于描述月度同步程度，不解释原因。
+Monthly Sales vs Monthly Profit,Spearman,48 monthly aggregates,48,0.7686712983065567,用于描述月度同步程度，不解释原因。
+Discount vs Profit,Pearson,Category=Furniture,2121,-0.48376877003233215,分类内观察性相关，用于检查商品结构差异。
+Discount vs Profit,Spearman,Category=Furniture,2121,-0.7230279755875698,分类内观察性相关，用于检查商品结构差异。
+Discount vs Profit,Pearson,Category=Office Supplies,6026,-0.20878715639215467,分类内观察性相关，用于检查商品结构差异。
+Discount vs Profit,Spearman,Category=Office Supplies,6026,-0.5216697898555349,分类内观察性相关，用于检查商品结构差异。
+Discount vs Profit,Pearson,Category=Technology,1847,-0.2688532407711234,分类内观察性相关，用于检查商品结构差异。
+Discount vs Profit,Spearman,Category=Technology,1847,-0.43825124329185183,分类内观察性相关，用于检查商品结构差异。

@@ -1,0 +1,15 @@
+﻿Analysis Area,Finding,Evidence,Metric / Value,Source Table,Caution,Potential Visualization
+Overall,整体销售为正且保持盈利，但亏损交易明细并不少见。,"总销售额 2,297,200.86，总利润 286,397.02；亏损明细 1,871 条。",利润率 12.47%；亏损明细占比 18.72%,overall_metrics.csv,亏损明细占比是商品明细层级，不等于亏损订单占比。,KPI / 利润结构说明
+Yearly Trend,2019 年销售和利润均增长，但利润增速低于销售增速。,Sales 同比 20.36%，Profit 同比 14.24%，利润率 12.74%。,"Sales 733,215.26；Profit 93,439.27",yearly_analysis.csv,同比只描述变化，不能直接解释增长原因。,年度销售与利润组合趋势
+Yearly Trend,2017 年销售与利润同比方向不同。,Sales 同比 -2.83%，Profit 同比 24.37%。,利润率 13.10%,yearly_analysis.csv,方向不同不说明具体原因，需要结合品类、地区和折扣结构分析。,年度销售与利润对比
+Monthly Trend,最高销售月份与高销售月份中的最低利润率月份并不相同。,"最高销售月份为 2019-11，Sales 118,447.82；高销售月份中利润率最低的是 2018-11，利润率 5.05%。","后者 Sales 79,411.97，Profit 4,011.41",monthly_analysis.csv,单月差异不能直接解释为稳定季节规律或因果影响。,月度 Sales 与 Profit 双趋势
+Month of Year,11 月在多个年份中反复进入销售额前三。,"4 个年份中有 4 年进入月销售前三，平均年度 Sales 88,115.27。",汇总利润率 10.06%,month_of_year_analysis.csv,仅有 4 年数据，可视为季节性线索，不能确认长期稳定季节规律。,按自然月的跨年对比
+Region,West 的利润最高；Central 的利润率最低。,"West Sales 725,457.82、Profit 108,418.45、利润率 14.94%；Central Sales 501,239.89、Profit 39,706.36、利润率 7.92%。",利润率差 7.02%,region_analysis.csv,地区汇总差异不说明差异由地区本身造成。,地区 Sales / Profit / 利润率对比
+State,Texas 在较高销售规模下仍为负利润。,"Sales 170,188.05（排名 3），Profit -25,729.36（排名 49），利润率 -15.12%。",负利润州共 10 个,state_analysis.csv,州级汇总未控制品类、折扣和客户结构。,州级地图 / Sales-Profit 排名对比
+Category,Furniture 的销售规模不低，但利润率明显最低。,"Sales 741,999.80，Profit 18,451.27，利润率 2.49%；Sales 排名 2，Profit 排名 3。",利润率 2.49%,category_analysis.csv,品类汇总不能说明具体子类别或折扣是唯一原因。,Category Sales-Profit 对比
+Sub-Category,Tables 的销售额较高但汇总利润为负。,"Sales 206,965.53（排名 4），Profit -17,725.48（排名 17），利润率 -8.56%。",负利润子类别共 3 个,subcategory_analysis.csv,描述性汇总未解释亏损原因，也不构成停售建议。,子类别 Sales-Profit 横向对比
+Sub-Category,Labels 的汇总利润率最高。,"Sales 12,486.31，Profit 5,546.25，利润率 44.42%。",Sales 排名 16；Profit 排名 12,subcategory_analysis.csv,高历史利润率不保证未来表现。,子类别利润率排名
+Segment,三个客户 Segment 均为正利润，利润率存在差异但信息维度较少。,Consumer 11.55%; Corporate 13.03%; Home Office 14.03%,利润率极差 2.49%,segment_analysis.csv,只有三个类别，更适合作为筛选器或辅助拆分，是否进入核心视图需结合版面。,筛选器 / 辅助分组条形图
+Sales × Profit,交易明细层面的 Sales 与 Profit 呈正相关，但极端记录会影响线性相关强度。,完整数据 Pearson 0.479、Spearman 0.518；中间 98% 敏感性子集 Pearson 0.566。,完整 N=9994；敏感性 N=9666,correlation_analysis.csv,相关不等于因果；敏感性子集没有替代完整数据统计。,Sales × Profit 散点图
+Discount × Profit,Discount 与 Profit 呈负相关，且部分实际折扣水平的汇总利润为负。,Pearson -0.219，Spearman -0.543；负利润折扣水平 8 个。,"30%: Profit -10,369.28, margin -10.05%, n=227; 32%: Profit -2,391.14, margin -16.50%, n=27; 40%: Profit -23,057.05, margin -19.81%, n=206; 45%: Profit -2,493.11, margin -45.45%, n=11; 50%: Profit -20,506.43, margin -34.80%, n=66; 60%: Profit -5,944.66, margin -89.46%, n=138; 70%: Profit -40,075.36, margin -98.66%, n=418; 80%: Profit -30,539.04, margin -180.03%, n=300",discount_analysis.csv,这是观察性关联，Category 和 Sub-Category 等结构变量可能同时影响折扣与利润。,折扣取值汇总 / Discount × Profit 散点
+Returns,West 的订单级退货率明显高于其他 Region，但当前数据只支持订单级比较。,整体唯一退货订单 296 / 5009，退货率 5.91%；West 为 11.73%，其他 Region 为 2.92%–3.32%。,West 退货订单率 11.73%；Region/Segment 分组率极差 8.81%,returns_analysis.csv,不能把 Returned=Yes 的商品明细视为具体商品被退货，也没有退货原因字段。,辅助 KPI / Region 或 Segment 订单级对比

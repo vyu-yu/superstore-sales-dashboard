@@ -1,0 +1,26 @@
+﻿Sheet,字段,数据类型,非空数量,缺失数量,缺失比例,缺失比例(%),唯一值数量
+Orders,Row ID,int64,9994,0,0.0,0.0,9994
+Orders,Order ID,str,9994,0,0.0,0.0,5009
+Orders,Order Date,datetime64[us],9994,0,0.0,0.0,1236
+Orders,Ship Date,datetime64[us],9994,0,0.0,0.0,1334
+Orders,Ship Mode,str,9994,0,0.0,0.0,4
+Orders,Customer ID,str,9994,0,0.0,0.0,793
+Orders,Customer Name,str,9994,0,0.0,0.0,793
+Orders,Segment,str,9994,0,0.0,0.0,3
+Orders,Country/Region,str,9994,0,0.0,0.0,1
+Orders,City,str,9994,0,0.0,0.0,531
+Orders,State,str,9994,0,0.0,0.0,49
+Orders,Postal Code,float64,9983,11,0.0011006603962377428,0.11006603962377427,630
+Orders,Region,str,9994,0,0.0,0.0,4
+Orders,Product ID,str,9994,0,0.0,0.0,1862
+Orders,Category,str,9994,0,0.0,0.0,3
+Orders,Sub-Category,str,9994,0,0.0,0.0,17
+Orders,Product Name,str,9994,0,0.0,0.0,1850
+Orders,Sales,float64,9994,0,0.0,0.0,6144
+Orders,Quantity,int64,9994,0,0.0,0.0,14
+Orders,Discount,float64,9994,0,0.0,0.0,12
+Orders,Profit,float64,9994,0,0.0,0.0,7545
+People,Person,str,4,0,0.0,0.0,4
+People,Region,str,4,0,0.0,0.0,4
+Returns,Returned,str,800,0,0.0,0.0,1
+Returns,Order ID,str,800,0,0.0,0.0,296

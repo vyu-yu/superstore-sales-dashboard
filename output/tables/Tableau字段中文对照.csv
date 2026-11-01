@@ -1,0 +1,42 @@
+Original Field,Display Name,Role,Format,Notes
+Row ID,交易明细编号,标识符,整数,交易明细级唯一键；散点图 Detail
+Order ID,订单编号,标识符,文本,订单数必须使用 COUNTD
+Order Date,订单日期,日期,yyyy-mm-dd,原始订单日期
+Ship Date,发货日期,日期,yyyy-mm-dd,原始发货日期
+Ship Mode,配送方式,维度,文本,可用于 Tooltip；不作为核心筛选器
+Customer ID,客户编号,标识符,文本,客户数必须使用 COUNTD
+Customer Name,客户名称,维度,文本,高基数字段；不作为主筛选器
+Segment,客户类型,维度,文本,全局筛选器候选；不制作独立核心图
+Country/Region,国家/地区,地理维度,文本,仅 United States；不做国家比较
+City,城市,地理维度,文本,仅用于下钻或 Tooltip；需与 State 联合识别
+State,州,地理维度,文本,设置为 State/Province 地理角色并限定 United States
+Postal Code,邮政编码,地理标识符,文本,保持五位字符串；不作为主地图定位字段
+Region,地区,维度,文本,全局筛选器和地区比较维度
+Product ID,商品编号,标识符,文本,不作为主筛选器
+Category,商品类别,维度,文本,全局筛选器；与 Sub-Category 建立层级
+Sub-Category,商品子类别,维度,文本,商品结构核心维度
+Product Name,商品名称,维度,文本,散点图 Tooltip；不作为主筛选器
+Sales,销售额,度量,$#,##0,统一使用 SUM
+Quantity,商品数量,度量,#,##0,销量口径为 SUM(Quantity)
+Discount,折扣,度量,0%,保留实际折扣水平；不建立折扣分组
+Profit,利润,度量,$#,##0;($#,##0),统一使用 SUM；负值使用红色语义
+Returned,是否退货,维度,文本,订单级 Yes/No 标记；不能证明具体商品被退货
+Order Year,订单年份,日期维度,0,全局筛选器；建议离散整数或日期年份
+Order Quarter,订单季度,日期维度,文本,Q1 至 Q4
+Order Month,订单月份,日期维度,0,1 至 12；仅用于正确排序或辅助分析
+Order Year-Month,订单年月,日期,yyyy-mm,连续月度轴；按月份首日存储
+[Calculated] Profit Margin,利润率,计算度量,0.00%,SUM([Profit]) / SUM([Sales])；禁止 AVG 行级利润率
+[Calculated] Average Order Sales,平均订单销售额,计算度量,$#,##0,SUM([Sales]) / COUNTD([Order ID])
+[Calculated] Transaction Lines,交易明细数,计算度量,#,##0,COUNTD([Row ID])
+[Calculated] Returned Orders,退货订单数,计算度量,#,##0,COUNTD(IF [Returned] = 'Yes' THEN [Order ID] END)
+[Calculated] Returned Order Rate,退货订单率,计算度量,0.00%,[Returned Orders] / COUNTD([Order ID])
+Category::Furniture,家具,类别值别名,文本,在 Tableau 中为 Furniture 设置 Alias
+Category::Office Supplies,办公用品,类别值别名,文本,在 Tableau 中为 Office Supplies 设置 Alias
+Category::Technology,技术产品,类别值别名,文本,在 Tableau 中为 Technology 设置 Alias
+Segment::Consumer,消费者,类别值别名,文本,在 Tableau 中为 Consumer 设置 Alias
+Segment::Corporate,企业,类别值别名,文本,在 Tableau 中为 Corporate 设置 Alias
+Segment::Home Office,家庭办公,类别值别名,文本,在 Tableau 中为 Home Office 设置 Alias
+Region::West,西部,类别值别名,文本,在 Tableau 中为 West 设置 Alias
+Region::East,东部,类别值别名,文本,在 Tableau 中为 East 设置 Alias
+Region::Central,中部,类别值别名,文本,在 Tableau 中为 Central 设置 Alias
+Region::South,南部,类别值别名,文本,在 Tableau 中为 South 设置 Alias

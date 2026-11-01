@@ -1,0 +1,31 @@
+# Python environments
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# IDE and OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Local secrets
+.streamlit/secrets.toml
+.env
+.env.*
+
+# Logs
+*.log
+
+# Draft and binary report artifacts
+report/数据可视化大作业报告_初稿.md
+report/数据可视化大作业报告.docx
+report/报告事实核验表.md
